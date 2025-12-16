@@ -26,6 +26,9 @@
 
 import LoginPage from "../pages/LoginPage";
 
+const login_page = new LoginPage();
+
+
 
 Cypress.Commands.add('loginSession',()=>{
 
@@ -33,9 +36,9 @@ Cypress.Commands.add('loginSession',()=>{
 
         cy.visit('/auth/login');
 
-
-
-
+        login_page.login('Admin','admin123');
+        cy.url().should('include', '/dashboard');
+        
     })
 
 

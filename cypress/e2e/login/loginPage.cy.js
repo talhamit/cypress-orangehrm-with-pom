@@ -8,7 +8,7 @@ describe('Login Test', () =>{
     beforeEach(() =>{
                
         loginP.visit();
-
+        
     })
 
     //Verify login page title
@@ -125,7 +125,7 @@ describe('Login Test', () =>{
    
     })
 
-    it.only('Verify OrangeHRM footer link',()=>{
+    it('Verify OrangeHRM footer link',()=>{
 
         loginP.orangeHrmLink().should('have.attr','href').and('contain','orangehrm.com');
     })
