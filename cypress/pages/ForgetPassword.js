@@ -1,8 +1,8 @@
 class ForgetPasswordPage{
 
 
- usernameInput() {
-    return cy.get('input[placeholder="Username"]');
+ usernameInput(username) {
+    return cy.get('input[placeholder="Username"]').type(username);
   }
 
   resetButton() {
@@ -13,10 +13,7 @@ class ForgetPasswordPage{
     return cy.get('button[type="button"]').should('have.text',' Cancel ');
   }
 
-  successMessage() {
-    return cy.get('.orangehrm-card-container');
-  }
-
+  
 
 
 }
