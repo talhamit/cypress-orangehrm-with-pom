@@ -33,12 +33,14 @@ describe('Forget Password Test',() =>{
         forgetP.cancelButton().click();
     })
 
-    it.only('Verify Reset Password with valid username', ()=>{
+    it('Verify Reset Password with valid username', ()=>{
 
         loginP.clickForgotPassword();
         forgetP.usernameInput('Admin');
         forgetP.resetButton().click();
-        cy.url().should('contains','/auth/sendPasswordReset')
+
+        //cy.url().should('contains','/auth/sendPasswordReset')
+        forgetP.resetPasswordtitle();
     })
 
         
