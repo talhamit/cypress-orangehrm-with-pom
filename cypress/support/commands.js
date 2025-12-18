@@ -31,21 +31,30 @@ const login_page = new LoginPage();
 Cypress.Commands.add('loginSession',()=>{
 
     cy.session('orangeHrmSession',()=>{
-
         login_page.visit();
         login_page.login('Admin','admin123');
         cy.url().should('include','/dashboard');
-
-
     },
-    
     {
       validate() {
         cy.url().should('include', '/dashboard');
         cy.getCookie('orangehrm').should('exist');
       }
-    }
-);
+    });
+})
 
+Cypress.Commands.add('apiLoginSession',()=>{
+
+        cy.session('OrangeApiLogin',()=>{
+          cy.request({
+            method:'POST',
+            url: '/api/auth/login',
+            body: {username:'Admin',password:'admin123'}
+          }).then((resp)=>{
+            expect(resp.status).to.eq(200);
+            // Save token in localStorage for app use
+            window.localStorage.setItem('token', resp.body.token);
+          })
+        })
 
 })

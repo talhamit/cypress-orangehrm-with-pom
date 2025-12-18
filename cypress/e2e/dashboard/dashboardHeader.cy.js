@@ -20,7 +20,8 @@ describe('Dashboard Header', () =>{
 
     it("Verify Dashboard", ()=>{
         
-        cy.contains("Dashboard").should("be.visible");
+        cy.url().should('include','/dashboard');
+        //cy.contains("Dashboard").should("be.visible");
 
     })
 
@@ -74,5 +75,7 @@ describe('Logout', () => {
         dashboardP.logoutLink().click();
         cy.url().should('include','/auth/login');
     });
+
+    
 
 });

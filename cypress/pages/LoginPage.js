@@ -5,11 +5,11 @@ class LoginPage{
        }
 
     EnterUserName (username){
-        return cy.get('input[placeholder="Username"]').type(username);
+        return cy.get('input[name="username"]').type(username);
     }       
 
     EnterPassword (passsword){
-        return cy.get('input[placeholder="Password"]').type(passsword);
+        return cy.get('input[name="password"]').type(passsword);
  
     }
 
